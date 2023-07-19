@@ -1,0 +1,235 @@
+{
+  "instructions": {
+    "MOV": {
+      "definition": "mov Xd, Xs",
+      "explanation": "Xd = Xs",
+      "displayName": "Move"
+    },
+    "LDR": {
+      "definition": "ldr Xd, [Xs]",
+      "explanation": "Xd = Mem[Xs]",
+      "displayName": "Load Register"
+    },
+    "LDP": {
+      "definition": "ldp Xd1, Xd2, [Xs]",
+      "explanation": "Xd1 = Mem[Xs], Xd2 = Mem[Xs + 8]",
+      "displayName": "Load Pair"
+    },
+    "STR": {
+      "definition": "str Xs, [Xd]",
+      "explanation": "Mem[Xd] = Xs",
+      "displayName": "Store Register"
+    },
+    "STP": {
+      "definition": "stp Xs1, Xs2, [Xd]",
+      "explanation": "Mem[Xd] = Xs1, Mem[Xd + 8] = Xs2",
+      "displayName": "Store Pair"
+    },
+    "ADD": {
+      "definition": "add Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 + Xs2",
+      "displayName": "Add"
+    },
+    "SUB": {
+      "definition": "sub Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 - Xs2",
+      "displayName": "Subtract"
+    },
+    "NEG": {
+      "definition": "neg Xd, Xs",
+      "explanation": "Xd = -(Xs)",
+      "displayName": "Negate"
+    },
+    "MUL": {
+      "definition": "mul Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 * Xs2",
+      "displayName": "Multiply"
+    },
+    "UDIV": {
+      "definition": "udiv Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 / Xs2 (unsigned)",
+      "displayName": "Divide (unsigned)"
+    },
+    "SDIV": {
+      "definition": "sdiv Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 / Xs2 (signed)",
+      "displayName": "Divide (signed)"
+    },
+    "LSL": {
+      "definition": "lsl Xd, Xs, #imm",
+      "explanation": "Xd = Xs << #imm",
+      "displayName": "Logical Shift (immediate)"
+    },
+    "LSR": {
+      "definition": "lsr Xd, Xs, #imm",
+      "explanation": "Xd = Xs >> #imm (logical)",
+      "displayName": "Logical Shift (register)"
+    },
+    "ASR": {
+      "definition": "asr Xd, Xs, #imm",
+      "explanation": "Xd = Xs >> #imm (arithmetic)",
+      "displayName": "Arithemtic Shift (immediate)"
+    },
+    "AND": {
+      "definition": "and Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 & Xs2",
+      "displayName": "Logical And"
+    },
+    "ORR": {
+      "definition": "orr Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 | Xs2",
+      "displayName": "Logical Or"
+    },
+    "EOR": {
+      "definition": "eor Xd, Xs1, Xs2",
+      "explanation": "Xd = Xs1 ^ Xs2",
+      "displayName": "Logical Exclusive-or"
+    },
+    "MVN": {
+      "definition": "mvn Xd, Xs",
+      "explanation": "Xd = ~Xs",
+      "displayName": "Move Not"
+    },
+    "CMP": {
+      "definition": "cmp Xs1, Xs2",
+      "explanation": "Sets CCs: Xs1 - Xs2",
+      "displayName": "Compare"
+    },
+    "TST": {
+      "definition": "tst Xs1, Xs2",
+      "explanation": "Sets CCs: Xs1 & Xs2",
+      "displayName": "Test"
+    },
+    "BR": {
+      "definition": "br address",
+      "explanation": "PC = address",
+      "displayName": "Branch to Register"
+    },
+    "CBZ": {
+      "definition": "cbz Rn, label",
+      "explanation": "If Rn == 0, PC = addr of label",
+      "displayName": "Compare and Branch if Zero"
+    },
+    "CBNZ": {
+      "definition": "cbnz Rn, label",
+      "explanation": "If Rn != 0, PC = addr of label",
+      "displayName": "Compare and Branch on Nonzero"
+    },
+    "B": {
+      "definition": "b label",
+      "explanation": "branch (PC = address of label)",
+      "displayName": "Branch",
+      "variants": {
+        "B.EQ": {
+          "definition": "b.eq label",
+          "explanation": "branch if equal"
+        },
+        "B.NE": {
+          "definition": "b.ne label",
+          "explanation": "branch if not equal"
+        },
+        "B.MI": {
+          "definition": "b.mi label",
+          "explanation": "branch if negative"
+        },
+        "B.PL": {
+          "definition": "b.pl label",
+          "explanation": "branch if non-negative"
+        },
+        "B.GT": {
+          "definition": "b.gt label",
+          "explanation": "branch if greater than"
+        },
+        "B.GE": {
+          "definition": "b.ge label",
+          "explanation": "branch if greater or equal"
+        },
+        "B.LT": {
+          "definition": "b.lt label",
+          "explanation": "branch if less than"
+        },
+        "B.LE": {
+          "definition": "b.le label",
+          "explanation": "branch if less or equal"
+        }
+      }
+    },
+    "BL": {
+      "definition": "bl address <fname>",
+      "explanation": "x30 = PC + 4, PC = address",
+      "displayName": "Branch and Link (address)"
+    },
+    "BLR": {
+      "definition": "blr Xn <fname>",
+      "explanation": "x30 = PC + 4, PC = Xn",
+      "displayName": "Branch and Link (register)"
+    },
+    "RET": {
+      "definition": "ret",
+      "explanation": "PC = x30 (value of x0 returned)",
+      "displayName": "Return"
+    },
+    "TBNZ": {
+      "definition": "tbnz Rn, #imm, label",
+      "explanation": "If Rn != 0, PC = addr of label",
+      "displayName": "Test bit and Branch if Nonzero"
+    },
+    "TBZ": {
+      "definition": "tbz Rn, #imm, label",
+      "explanation": "If Rn == 0, PC = addr of label",
+      "displayName": "Test bit and Branch if Zero"
+    },
+    "PACIA": {
+      "definition": "pacia Xd, Xn",
+      "explanation": "Pointer Authentication Code for Instruction address, using key A.",
+      "displayName": "Pointer Authentication",
+      "variants": {
+        "PACIBSP": {
+          "definition": "paciasp",
+          "explanation": ""
+        },
+        "PACIBZ": {
+          "definition": "paciaz Xd",
+          "explanation": ""
+        },
+        "PACIZB": {
+          "definition": "paciza Xd",
+          "explanation": ""
+        }
+      }
+    },
+    "PACIB": {
+      "definition": "pacib Xd, Xn",
+      "explanation": "Pointer Authentication Code for Instruction address, using key B.",
+      "displayName": "Pointer Authentication",
+      "variants": {
+        "PACIBSP": {
+          "definition": "pacibsp",
+          "explanation": ""
+        },
+        "PACIBZ": {
+          "definition": "pacibz Xd",
+          "explanation": ""
+        },
+        "PACIZB": {
+          "definition": "pacizb Xd",
+          "explanation": ""
+        }
+      }
+    }
+  },
+  "registers": {
+    "x0": "First argument OR return value",
+    "x1-x8": "(n+1)th argument",
+    "x9-28": "General Purpose Registers",
+    "x29": "Frame Pointer (FP)",
+    "x30": "Link Register (LR)",
+    "x31": "Stack Pointer (SP)"
+  },
+  "flags": {
+    "Z": "Zero",
+    "N": "Negative",
+    "C": "Carry (unsigned overflow)",
+    "V": "(Signed) overflow"
+  }
+}
